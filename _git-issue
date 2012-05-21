@@ -33,17 +33,29 @@ _git-issue ()
       local -a subcommands
       subcommands=(
       'show:show given issue summary. if given no id,  geuss id from current branch name.'
+      's:show given issue summary. if given no id,  geuss id from current branch name.'
       'list:listing issues.'
+      'l:listing issues.'
       'mine:display issues that assigned to you.'
+      'm:display issues that assigned to you.'
       'commit:commit with filling issue subject to messsage.if given no id, geuss id from current branch name.'
+      'c:commit with filling issue subject to messsage.if given no id, geuss id from current branch name.'
       'add:create issue.'
+      'a:create issue.'
       'update:update issue properties. if given no id, geuss id from current branch name.'
+      'u:update issue properties. if given no id, geuss id from current branch name.'
       "branch:checout to branch using specified issue id. if branch dose'nt exisits, create it. (ex ticket/id/<issue_id>)"
+      "b:checout to branch using specified issue id. if branch dose'nt exisits, create it. (ex ticket/id/<issue_id>)"
       'publish:push branch to remote repository and set upstream'
+      'pub:push branch to remote repository and set upstream'
       'rebase:rebase branch onto specific newbase'
+      'rb:rebase branch onto specific newbase'
       'help:show usage.'
+      'h:show usage.'
       'local:listing local branches tickets'
+      'loc:listing local branches tickets'
       'project:listing ticket belongs to sspecified project'
+      'pj:listing ticket belongs to sspecified project'
       )
       _describe -t commands 'git issue' subcommands
       ;;
