@@ -1,0 +1,80 @@
+#compdef git-issue
+# ------------------------------------------------------------------------------
+# Description
+# -----------
+#
+#  Completion script for git-issue (https://github.com/yuroyoro/git-issue).
+#
+#  Source: https://github.com/glidenote/git-issue-zsh-completion
+#
+# ------------------------------------------------------------------------------
+# Authors
+# -------
+#
+# * Akira Maeda (glidenote@gmail.com)
+#
+# ------------------------------------------------------------------------------
+# -*- mode: zsh; sh-indentation: 2; indent-tabs-mode: nil; sh-basic-offset: 2; -*-
+# vim: ft=zsh sw=2 ts=2 et
+# ------------------------------------------------------------------------------
+
+_git-issue ()
+{
+  local curcontext="$curcontext" state line
+  typeset -A opt_args
+
+  _arguments -C \
+    ':command:->command' \
+    '*::options:->options'
+
+  case $state in
+    (command)
+
+      local -a subcommands
+      subcommands=(
+      'show:show given issue summary. if given no id,  geuss id from current branch name.'
+      'list:listing issues.'
+      'mine:display issues that assigned to you.'
+      'commit:commit with filling issue subject to messsage.if given no id, geuss id from current branch name.'
+      'add:create issue.'
+      'update:update issue properties. if given no id, geuss id from current branch name.'
+      "branch:checout to branch using specified issue id. if branch dose'nt exisits, create it. (ex ticket/id/<issue_id>)"
+      'publish:push branch to remote repository and set upstream'
+      'rebase:rebase branch onto specific newbase'
+      'help:show usage.'
+      'local:listing local branches tickets'
+      'project:listing ticket belongs to sspecified project'
+      )
+      _describe -t commands 'git issue' subcommands
+      ;;
+
+  esac
+
+  _arguments -w -C -s \
+    '-h[Show help message]' \
+    '(-a --all)'{-a,--all}'[update all paths in the index file]' \
+    '(-f --force)'{-f,--force}'[force create branch]' \
+    '(-v --verbose)'{-v,--verbose}'[show issue details]' \
+    '(-n --max-count)'{-n,--max-count=}'[maximum number of issues]:VALUE:' \
+    '(--oneline)--oneline[display short info]' \
+    '--raw-id[output ticket number only]' \
+    '(--remote)--remote=[on publish, remote repository to push branch]:VALUE:' \
+    '(--onto)--onto=[on rebase, start new branch with HEAD equal to "newbase"]:VALUE:' \
+    '--debug[debug print]' \
+    '(-s --supperss_commentsc)'{-s,--supperss_commentsc}'[show issue journals]' \
+    '(--title)--title=[Title of issue.Use the given value to create/update issue.]:VALUE:' \
+    '(--body)--body=[Body content of issue.Use the given value to create/update issue.]:VALUE:' \
+    "(--state)--state=[Use the given value to create/update issue. or query of listing issues.Where 'state' is either 'open' or 'closed']:VALUE:" \
+    '(--milestone)--milestone=[Use the given value to create/update issue. or query of listing issues, (Integer Milestone number)]:VALUE:' \
+    '(--assignee)--assignee=[Use the given value to create/update issue. or query of listing issues, (String User login)]:VALUE:' \
+    '(--mentioned)--mentioned=[Query of listing issues, (String User login)]:VALUE:' \
+    '(--labels)--labels=[Use the given value to create/update issue. or query of listing issues, (String list of comma separated Label names)]:VALUE:' \
+    '(--sort)--sort=[Query of listing issues, (created,  updated,  comments,  default: created)]:VALUE:' \
+    '(--direction)--direction=[Query of listing issues, (asc or desc,  default: desc.)]:VALUE:' \
+    '(--since)--since=[Query of listing issue, (Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ)]:VALUE:' \
+    "(--password)--password=[For Authorizaion of create/update issue.  Github API v3 doesn't supports API token base authorization for now. then, use Basic Authorizaion instead token.]:VALUE:" \
+    "--sslnoverify[don't verify SSL]" \
+    '*: :__git_branch_names'
+}
+
+_git-issue "$@"
