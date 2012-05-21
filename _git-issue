@@ -56,6 +56,8 @@ _git-issue ()
       'loc:listing local branches tickets'
       'project:listing ticket belongs to sspecified project'
       'pj:listing ticket belongs to sspecified project'
+      'mention:create a comment to given issue'
+      'men:create a comment to given issue'
       )
       _describe -t commands 'git issue' subcommands
       ;;
