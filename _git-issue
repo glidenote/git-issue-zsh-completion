@@ -58,21 +58,21 @@ _git-issue ()
     '(-n --max-count)'{-n,--max-count=}'[maximum number of issues]:VALUE:' \
     '(--oneline)--oneline[display short info]' \
     '--raw-id[output ticket number only]' \
-    '(--remote)--remote=[on publish, remote repository to push branch]:VALUE:' \
-    '(--onto)--onto=[on rebase, start new branch with HEAD equal to "newbase"]:VALUE:' \
+    '--remote=[on publish, remote repository to push branch]:VALUE:' \
+    '--onto=[on rebase, start new branch with HEAD equal to "newbase"]:VALUE:' \
     '--debug[debug print]' \
     '(-s --supperss_commentsc)'{-s,--supperss_commentsc}'[show issue journals]' \
-    '(--title)--title=[Title of issue.Use the given value to create/update issue.]:VALUE:' \
-    '(--body)--body=[Body content of issue.Use the given value to create/update issue.]:VALUE:' \
-    "(--state)--state=[Use the given value to create/update issue. or query of listing issues.Where 'state' is either 'open' or 'closed']:VALUE:" \
-    '(--milestone)--milestone=[Use the given value to create/update issue. or query of listing issues, (Integer Milestone number)]:VALUE:' \
-    '(--assignee)--assignee=[Use the given value to create/update issue. or query of listing issues, (String User login)]:VALUE:' \
-    '(--mentioned)--mentioned=[Query of listing issues, (String User login)]:VALUE:' \
-    '(--labels)--labels=[Use the given value to create/update issue. or query of listing issues, (String list of comma separated Label names)]:VALUE:' \
-    '(--sort)--sort=[Query of listing issues, (created,  updated,  comments,  default: created)]:VALUE:' \
-    '(--direction)--direction=[Query of listing issues, (asc or desc,  default: desc.)]:VALUE:' \
-    '(--since)--since=[Query of listing issue, (Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ)]:VALUE:' \
-    "(--password)--password=[For Authorizaion of create/update issue.  Github API v3 doesn't supports API token base authorization for now. then, use Basic Authorizaion instead token.]:VALUE:" \
+    '--title=[Title of issue.Use the given value to create/update issue.]:VALUE:' \
+    '--body=[Body content of issue.Use the given value to create/update issue.]:VALUE:' \
+    "--state=[Use the given value to create/update issue. or query of listing issues.Where 'state' is either 'open' or 'closed']:VALUE:" \
+    '--milestone=[Use the given value to create/update issue. or query of listing issues, (Integer Milestone number)]:VALUE:' \
+    '--assignee=[Use the given value to create/update issue. or query of listing issues, (String User login)]:VALUE:' \
+    '--mentioned=[Query of listing issues, (String User login)]:VALUE:' \
+    '--labels=[Use the given value to create/update issue. or query of listing issues, (String list of comma separated Label names)]:VALUE:' \
+    '--sort=[Query of listing issues, (created,  updated,  comments,  default: created)]:VALUE:' \
+    '--direction=[Query of listing issues, (asc or desc,  default: desc.)]:VALUE:' \
+    '--since=[Query of listing issue, (Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ)]:VALUE:' \
+    "--password=[For Authorizaion of create/update issue.  Github API v3 doesn't supports API token base authorization for now. then, use Basic Authorizaion instead token.]:VALUE:" \
     "--sslnoverify[don't verify SSL]" \
     '*: :__git_branch_names'
 }
